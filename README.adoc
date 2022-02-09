@@ -1,0 +1,44 @@
+# BackEnd Java Services
+
+The contents of this project are different end points of POST /request, POST /callback/{id}, PUT /callback/{id}, GET /status/{id}. These services are build on the java Spring framework.
+
+This example also includes what configuration would be necessary to connect the application to a database to hold the request's id, status, body, and detail.
+
+The repository can be cloned or downloaded. If opened in an IDE it can be ran as a java application. The root project folder to import is cs-service inside of cs-rest-service. If Run Configuration is needed for the Java Application the project should point to cs-service and the mainclass should be pointed to com.example.restservice.RestServiceApplication
+
+Inside of the cs-service folder there is also RestService.jar which can be ran from the commandline with java -jar RestService.jar and that will start the server for listening to the endpoint requests.
+
+By default the server will start on http://localhost:8080.
+
+SoapUI or similar application to make a REST call can be used to test the endpoints.
+
+Example endpoints and inputs:
+
+## http://localhost:8080/request : POST
+
+Request Body (JSON)
+```
+{
+  "body" : "Example Test Data"
+}
+```
+##  http://localhost:8080/callback/{id} : POST
+
+Request Body (Text)
+```
+STARTED
+```
+## http://localhost:8080/callback/{id} : PUT
+
+Request Body (JSON)
+```
+{
+	"status" : "COMPLETED",
+	"detail" : "request completed"	
+}
+```
+## http://localhost:8080/status/{id} : GET
+Response
+```
+Returns Object
+```
